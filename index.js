@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch((err) => console.log("Internal Server Error"));
 const corsOptions = {
   origin: "https://blogs-app.pages.dev",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: "GET,PUT,POST,DELETE",
   credentials: true,
 };
 App.use(cors(corsOptions));
