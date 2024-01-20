@@ -4,7 +4,7 @@ const route = express.Router();
 const Authrization = require("../Middlewares/Auth");
 const controllers = require("../controllers/controller");
 
-route.get("/check", Authrization.Middleware, controllers.check);
+route.get("/check",controllers.check);
 
 // SignUp API
 route.post("/signup", controllers.signup);
