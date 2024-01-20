@@ -7,7 +7,7 @@ const cors = require("cors");
 const router = require("./router/route");
 mongoose.connect(process.env.MONGODB_URI)
   .then((res) => console.log("Connect To MongoDB"))
-  .catch((err) => console.log("Inter Server Error"));
+  .catch((err) => console.log("Internal Server Error"));
 const corsOptions = {
   origin: "https://blogs-app.pages.dev",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
