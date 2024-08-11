@@ -1,10 +1,12 @@
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const User = require("../Model/Schema");
+const bcrypt = require('bcrypt');
+
 const UserTask = require("../Model/TaskSchema");
+const User = require("../Model/Schema");
 
 const controllers = {
   check: (req, res) => {
+    console.log("API HIT")
     res.json({
       status: true,
       message: "Successfully Connected",
@@ -84,8 +86,9 @@ const controllers = {
             });
           } else {
             let Token = {
-              ...checkEmil,
+              ...checkEmil
             };
+            
 
             let checkToken = jwt.sign(Token, process.env.JWT_SECRET);
 
@@ -98,11 +101,13 @@ const controllers = {
         }
       })
       .catch((err) => {
+        console.error("SignUp Error:", err);
         res.status(500).json({
           status: false,
-          message: "SignIn Process Fail",
+          message: "SignUp Process Fail",
         });
       });
+      
   },
   postapi: (req, res) => {
     let { title, description, status } = req.body;
